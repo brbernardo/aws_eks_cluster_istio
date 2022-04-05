@@ -1,0 +1,44 @@
+---
+- name: "Playing with Ansible and Git"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Delete Proxy"
+      shell: ./shell/delete-proxy.sh
+      ignore_errors: True
+- name: "Playing with Ansible and Git"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Delete Ingress"
+      shell: ./shell/delete-ingress.sh
+      ignore_errors: True
+- name: "Delete Istio"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Delete Istio"
+      shell: ./shell/delete-istio.sh
+      ignore_errors: True
+- name: "Delete Ingress"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Delete Ingress"
+      shell: ./shell/delete-ingress.sh
+      ignore_errors: True
+- name: "Download Istio"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Download Istio"
+      shell: ./shell/download-istio.sh
+      ignore_errors: True
+- name: "Delete Terraform"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Delete Terraform"
+      shell: ./shell/delete-terraform.sh
+      ignore_errors: True
+

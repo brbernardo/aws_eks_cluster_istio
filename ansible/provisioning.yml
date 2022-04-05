@@ -1,0 +1,92 @@
+---
+- name: "Provisionando ambiente"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Provisionando ambiente"
+      shell: ./shell/aws-provisioning.sh
+      ignore_errors: True
+- name: "Configurando Kubectl"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Configurando Kubectl"
+      shell: ./shell/conf-kubectl.sh
+      ignore_errors: True
+- name: "Instalando o Istio"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Instalando o Istio"
+      shell: ./shell/install-istio.sh
+      ignore_errors: True
+- name: "Export Istio"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Export Istio"
+      shell: ./shell/export-istio.sh
+      ignore_errors: True
+- name: "Instalando o httpbin"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Instalando o httpbin"
+      shell: ./shell/install-httpbin.sh
+      ignore_errors: True
+- name: "Export Ingress"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Export Ingress"
+      shell: ./shell/export-ingress.sh
+      ignore_errors: True
+- name: "Configurando as variaveis de ambiente para utilizar o ELB da AWS"
+  hosts: localhost
+  connection: local
+  tasks:
+        - name: "Configurando as variaveis de ambiente para utilizar o ELB da AWS"
+          shell: ./shell/export-ingress-2.sh
+          ignore_errors: True
+- name: "Criando Ingress Gateways"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Criando Ingress Gateways"
+      shell: ./shell/ingress-gateways.sh
+      ignore_errors: True
+- name: "Criando VirtualService"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Criando VirtualService"
+      shell: ./shell/virtualservice.sh
+      ignore_errors: True
+- name: "Configurando ingress gateway"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Configurando ingress gateway"
+      shell: ./shell/proxy.sh
+      ignore_errors: True
+- name: "Configurando ServiceEntry"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Configurando ServiceEntry"
+      shell: ./shell/serviceentry.sh
+      ignore_errors: True
+- name: "Configurando ServiceEntry localhost"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Configurando ServiceEntry localhost"
+      shell: ./shell/serviceentry-localhost.sh
+      ignore_errors: True
+- name: "Configurando VirtualService httpbin"
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: "Configurando VirtualService httpbin"
+      shell: ./shell/virtualservice-httpbin.sh
+      ignore_errors: True
