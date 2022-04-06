@@ -1,3 +1,6 @@
 [submodule "istio"]
 	path = istio
 	url = https://github.com/istio/istio
+[submodule "aws_eks_cluster"]
+	path = aws_eks_cluster
+	url = https://github.com/brbernardo/aws_eks_cluster
